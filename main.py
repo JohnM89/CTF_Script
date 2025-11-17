@@ -15,6 +15,6 @@ args = parser.parse_args()
 with open(args.w, "r") as f:
     for fuzz in f:
         payload = fuzz.strip().replace('{FILE}', fuzzyword)
-        r = requests.get(f'http://{args.u}/{payload}')
+        r = requests.get(f'{args.u}/{payload}')
         if r.status_code == 200:   
             print(r.text)
